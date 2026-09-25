@@ -1,3 +1,5 @@
 <Solution>
-  <Project Path="UpgLabs/UpgLabs.csproj" />
+  <Project Path="Labs.Bench/Labs.Bench.csproj" />
+  <Project Path="Labs.Tests/Labs.Tests.csproj" />
+  <Project Path="UpgLabs/Labs.csproj" />
 </Solution>
