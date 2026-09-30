@@ -14,7 +14,7 @@ public class Greeter(string name)
 
 class Program
 {
-    static public void W00_1()
+    public static void W00_1()
     {
         Point a = new(1, 2);
         Point b = new(1, 2);
@@ -28,22 +28,23 @@ class Program
         Console.WriteLine(a.Equals(c)); // False
     }
 
-    static public void W00_2()
+    public static void W00_2()
     {
-        string Describe(object obj) => obj switch
-        {
-            int n when n < 0 => "negative list",
-            Point { X: 0, Y: 0 } => "origin",
-            null => "null",
-            _ => "other"
-        };
+        string Describe(object obj) =>
+            obj switch
+            {
+                int n when n < 0 => "negative list",
+                Point { X: 0, Y: 0 } => "origin",
+                null => "null",
+                _ => "other",
+            };
 
         //if (obj is string { Length: > 0 } s)
 
         Console.WriteLine(Describe(new Point(0, 0))); // "origin"
     }
 
-    static public void W00_3()
+    public static void W00_3()
     {
         //#nullable enable
         //string name = null;
@@ -52,14 +53,14 @@ class Program
         //if (maybe is not null) Console.WriteLine(maybe.Length);
     }
 
-    static public void W00_4()
+    public static void W00_4()
     {
         var u = new User { Email = "a@b.cz" }; // OK
         //var bad = new User(); // error: property is required
         //u.Email = "x"; // error: class had proprty set as "init"
     }
 
-    static public void W00_5()
+    public static void W00_5()
     {
         int[] nums = [1, 2, 3];
         List<int> list = [.. nums, 4, 5]; // unpacking with .. (spread operator)
@@ -70,13 +71,11 @@ class Program
     static void Main()
     {
         ///////////////////////////
-        /// Record acts by value 
+        /// Record acts by value
         /// for .Equals and ==
-        /// 
+        ///
         //W00_1();
         ///////////////////////////
-
-
 
         ///////////////////////////
         /// Pattern matching
@@ -84,57 +83,26 @@ class Program
         //W00_2();
         ///////////////////////////
 
-
-
         ///////////////////////////
         /// Nullable warnings?
         ///
         //W00_3();
         ///////////////////////////
 
-
-
         ///////////////////////////
-        /// Required property 
+        /// Required property
         /// + init setter
         ///
-        //W00_4(); 
+        //W00_4();
         ///////////////////////////
 
-
         ///////////////////////////
-        /// Primary constructors and 
+        /// Primary constructors and
         /// collection expressions
-        /// 
+        ///
         //W00_5();
         ///////////////////////////
 
-        var arr = new DynamicArray<int>();
-
-        arr.Print();
-
-        arr.Add(1);
-        arr.Add(2);
-        arr.Add(3);
-        arr.Add(4);
-        arr.Add(5);
-        arr.Add(6);
-        arr.Add(7);
-
-        arr.Insert(2, 8);
-        arr.Insert(2, 8);
-
-        arr.RemoveAt(2);
-        arr.RemoveAt(2);
-
-
-        Console.WriteLine(arr.IndexOf(7));
-
-        arr.Print();   
-
-        arr.Capacity = 20;
-
-        arr.Print();
-
+        LabW01Wed.Run();
     }
 }
